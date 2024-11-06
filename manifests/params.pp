@@ -34,6 +34,14 @@ class duo_unix::params {
       $ssh_service  = 'sshd'
       $pam_file     = '/etc/pam.d/common-auth'
       $auth_logfile = '/var/log/auth.log'
+      case $facts['os']['codename'] {
+        'noble' : {
+          $ssh_service  = 'ssh'
+        }
+        default: {
+          $ssh_service  = 'sshd'
+        }
+      }
     }
     'RedHat': {
       $duo_package = 'duo_unix'
