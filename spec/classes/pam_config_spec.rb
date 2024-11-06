@@ -8,7 +8,7 @@ describe 'duo_unix::pam_config' do
     package { 'duo-unix':
       ensure => 'installed'
     }
-    service { 'ssh':
+    service { 'sshd':
       ensure => 'running'
     }"
   end
